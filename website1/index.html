@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadoop词频统计结果展示</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📊 Hadoop词频统计可视化</h1>
+            <p>基于Hadoop分布式计算的词频统计结果展示</p>
+        </header>
+
+        <main class="main-content">
+            <section class="stats-overview">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalWords">0</div>
+                    <div class="stat-label">统计词汇数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalOccurrences">0</div>
+                    <div class="stat-label">总出现次数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="uniqueWords">0</div>
+                    <div class="stat-label">唯一词汇数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="topWord">-</div>
+                    <div class="stat-label">最高频词</div>
+                </div>
+            </section>
+
+            <section class="chart-section">
+                <h2>词频分布图表</h2>
+                <div class="chart-controls">
+                    <button id="showTop20" class="btn active">前20个词汇</button>
+                    <button id="showTop50" class="btn">前50个词汇</button>
+                    <button id="showWordCloud" class="btn">词云图</button>
+                </div>
+                <div id="chartContainer" class="chart-container"></div>
+            </section>
+
+            <section class="word-list-section">
+                <h2>词汇频率详情</h2>
+                <div class="search-controls">
+                    <input type="text" id="searchInput" placeholder="搜索词汇..." class="search-input">
+                    <select id="sortSelect" class="sort-select">
+                        <option value="count-desc">按频率降序</option>
+                        <option value="count-asc">按频率升序</option>
+                        <option value="word-asc">按词汇A-Z</option>
+                        <option value="word-desc">按词汇Z-A</option>
+                    </select>
+                </div>
+                <div id="wordList" class="word-list"></div>
+                <div class="pagination">
+                    <button id="prevPage" class="btn">上一页</button>
+                    <span id="pageInfo">第 1 页 / 共 1 页</span>
+                    <button id="nextPage" class="btn">下一页</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>数据来源: Hadoop词频统计作业 | 最后更新: <span id="lastUpdate">未知</span></p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
